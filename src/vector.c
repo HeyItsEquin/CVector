@@ -8,7 +8,7 @@
 #define V_REALLOC_FAIL 0x2
 #define V_COPY_FAIL 0x3
 
-vector* v_new() {
+vector *v_new() {
     vector* v = malloc(sizeof(vector));
     v->size = 0;
     v->capacity = sizeof(int);
@@ -22,7 +22,7 @@ vector* v_new() {
     return v;
 }
 
-void v_pushback(vector* v, int val) {
+void v_pushback(vector *v, int val) {
     if (v->size + sizeof(int) > v->capacity) {
         size_t new_capacity = v->capacity ? v->capacity * 2 : sizeof(int) * 2;
 
@@ -43,7 +43,7 @@ void v_pushback(vector* v, int val) {
     v->size += sizeof(val);
 }
 
-void v_push(vector* v, int val) {
+void v_push(vector *v, int val) {
     if (v->size + sizeof(int) > v->capacity) {
         size_t new_capacity = v->capacity ? v->capacity * 2 : sizeof(int) * 2;
 
@@ -70,7 +70,7 @@ void v_push(vector* v, int val) {
     v->size += sizeof(int);
 }
 
-int v_poplast(vector* v) {
+int v_poplast(vector *v) {
     if (v->size == 0)
         return 0;
 
@@ -82,7 +82,7 @@ int v_poplast(vector* v) {
     return res;
 }
 
-int v_popfirst(vector* v) {
+int v_popfirst(vector *v) {
     if (v->size == 0)
         return 0;
 
@@ -114,6 +114,6 @@ void v_shrinktofit(vector *v) {
     v->capacity = v->size;
 }
 
-unsigned int v_length(vector* v) {
+unsigned int v_length(vector *v) {
     return v->size/sizeof(int);
 }
