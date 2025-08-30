@@ -19,3 +19,12 @@ Pops the first element of the vector and returns it. Returns 0 if the vector is 
 
 ### `void v_shrinktofit(vector *v)`
 Shrinks `v->capacity` to `v->size` and reallocates the memory appropriately. Sets errno on failure
+
+### `void v_reserve(vector *v, int val)`
+Resizes `v` such that it contains enough memory for `val` items. Sets errno on failure.
+
+### `void v_resize(vector *v, int val)`
+Resizes `v` so that it contains `val` elements. (UNIMPLEMENTED AS OF NOW)
+
+### `bool v_empty(vector *v)`
+Returns whether `v` is empty.
