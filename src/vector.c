@@ -114,6 +114,26 @@ void v_shrinktofit(vector *v) {
     v->capacity = v->size;
 }
 
+void v_reserve(vector *v, int val) {
+    if (v->capacity <= val*sizeof(int))
+        return;
+    
+    int* new_mem = realloc(v->data, val*sizeof(int));
+    if (!new_mem) {
+        errno = V_REALLOC_FAIL;
+        return;
+    }
+    v->data = new_mem;
+}
+
+void v_resize(vector *v, int val) {
+    
+}
+
+bool v_empty(vector *v) {
+    return v->size == 0;
+}
+
 unsigned int v_length(vector *v) {
     return v->size/sizeof(int);
 }

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <stdlib.h>
+#include <stdbool.h>
 
 typedef struct {
     size_t size;
@@ -16,5 +17,8 @@ void v_push(vector *v, int val);
 int v_poplast(vector *v);
 int v_popfirst(vector *v);
 void v_shrinktofit(vector *v);
+void v_reserve(vector *v, int val);
+void v_resize(vector *v, int val);
+bool v_empty(vector *v);
 
 unsigned int v_length(vector *v);
